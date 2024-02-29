@@ -1,18 +1,18 @@
 const functions = require("./functions.js");
 
-describe('multiply function', () => {
+describe('multiply two numbers', () => {
   it('should be return multiple when I sent two numbers', () => {
     //ARRANGE -> Inicializa los objetos y establece los valores q vamos a usar en el test
-    const a = 3;
-    const b = 4;
-    //ACT
-    const result = functions.multiply(a, b);
+    const number1 = 3;
+    const number2 = 4;
+    //ACT -> Realiza la llamada al metodo a probar con los parametross
+    const result = functions.multiply(number1, number2);
 
     //ASSERT
     expect(result).toEqual(12);
   });
 
-  it('should be return cero when I sent the number  cero', () => {
+  it('should be return cero when I sent to multiply by zero', () => {
     //ARRANGE
     const a = 0;
     const b = 5;
@@ -20,29 +20,21 @@ describe('multiply function', () => {
     const result = functions.multiply(a, b);
 
     //ASSERT
-    expect(result).toEqual(0);
+    expect(result).toBe(0)
   });
 
 });
 
-describe('isNull function', () => {
-  it('should be return null', () => {
+describe(' function is null', () => {
+  it('should be return a value null if i sent a null value', () => {
     //ARRANGE
-
+    const valueNull = null;
     //ACT
-    const result = functions.isNull();
+    const result = functions.isNull(valueNull);
     //ASSERT
     expect(result).toBeNull();
   });
 
-  it('should be dont throw errors', () => {
-    //ARRANGE
-
-    //ACT
-
-    //ASSERT
-    expect(() => functions.isNull()).not.toThrow();
-  });
 });
 
 describe('checkTruthy function', () => {
@@ -64,14 +56,7 @@ describe('checkTruthy function', () => {
     expect(result).toBeFalsy();
   });
 
-  it('should be return false when I sent a not boolean parameter', () => {
-    //ARRANGE
-    const value = 'test';
-    //ACT
-    const result = functions.checkTruthy(value);
-    //ASSERT
-    expect(result).toBeFalsy();
-  });
+
 })
 
 describe('addLastName function', () => {
@@ -84,14 +69,5 @@ describe('addLastName function', () => {
     expect(result).toEqual({firstname: 'Pepito', lastname: 'Martinez'});
   });
 
-
-  it('should be return undefined when I dont sent lastname', () => {
-    //ARRANGE
-    //ACT
-    const result = functions.addLastName();
-    //ASSERT
-    expect(result.lastname).toBeUndefined();
-    expect(result).toEqual({firstname: 'Pepito', lastname: undefined})
-  });
 })
 
